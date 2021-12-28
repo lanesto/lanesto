@@ -1,0 +1,18 @@
+name: "Check Portfolio"
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  is-url-accessible:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check response for URL
+        run: |
+          url='https://www.notion.so/Yuchan-Lee-8a7bff1ae0a147ad9d6bc63768b317b1'
+          status_code=$(curl $url --output /dev/null --write-out "%{http_code}")
+          echo "Returned status code for ${url}: ${status_code}"
