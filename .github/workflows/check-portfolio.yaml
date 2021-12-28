@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check response for URL
         run: |
-          url='https://www.notion.so/Yuchan-Lee-8a7bff1ae0a147ad9d6bc63768b317b1'
+          url='https://blushing-narwhal-1de.notion.site/Yuchan-Lee-8a7bff1ae0a147ad9d6bc63768b317b1'
           status_code=$(curl $url --output /dev/null --write-out "%{http_code}")
           echo "Returned status code for ${url}: ${status_code}"
           [[ ! $status_code =~ ^[2,3][0-9]{2} ]] && exit 1
